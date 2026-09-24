@@ -3,7 +3,7 @@ import { SurfaceCard } from "@/components/atoms/surface-card";
 import { Link } from "@/i18n/navigation";
 import type { Session } from "@/types/session";
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 interface SessionBlockProps {
   session: Session;
@@ -11,12 +11,8 @@ interface SessionBlockProps {
   height: number;
 }
 
-export async function SessionBlock({
-  session,
-  top,
-  height,
-}: SessionBlockProps) {
-  const t = await getTranslations("SessionLevel");
+export function SessionBlock({ session, top, height }: SessionBlockProps) {
+  const t = useTranslations("SessionLevel");
 
   return (
     <Link href={`/sessions/${session.id}`}>
