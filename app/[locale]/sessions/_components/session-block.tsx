@@ -13,9 +13,18 @@ interface SessionBlockProps {
 
 export function SessionBlock({ session, top, height }: SessionBlockProps) {
   const t = useTranslations("SessionLevel");
+  const tBadge = useTranslations("SessionBadge");
+
+  const levelLabel = t(session.level);
+  const accessibleName = [
+    session.title,
+    tBadge("level", { value: levelLabel }),
+    session.startTime,
+    session.speaker,
+  ].join(", ");
 
   return (
-    <Link href={`/sessions/${session.id}`}>
+    <Link href={`/sessions/${session.id}`} aria-label={accessibleName}>
       <Box
         position="absolute"
         insetX="1"
@@ -23,15 +32,15 @@ export function SessionBlock({ session, top, height }: SessionBlockProps) {
         height={`${height}px`}
       >
         <SurfaceCard>
-          <Flex align="center" gap="1">
+          <Flex align="center" gap="1" aria-hidden="true">
             <Text fontWeight="medium" color="var(--text-primary)" truncate>
               {session.title}
             </Text>
             <Box flexShrink="0">
-              <Badge variant="secondary">{t(session.level)}</Badge>
+              <Badge variant="secondary">{levelLabel}</Badge>
             </Box>
           </Flex>
-          <Text color="var(--text-muted)" truncate>
+          <Text color="var(--text-muted)" truncate aria-hidden="true">
             {session.startTime} · {session.speaker}
           </Text>
         </SurfaceCard>

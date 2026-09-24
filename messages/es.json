@@ -17,5 +17,9 @@
     "beginner": "Principiante",
     "intermediate": "Intermedio",
     "advanced": "Avanzado"
+  },
+  "SessionBadge": {
+    "track": "Categoría: {value}",
+    "level": "Nivel: {value}"
   }
 }

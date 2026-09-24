@@ -39,4 +39,12 @@ describe("SessionBlock", () => {
 
     expect(screen.getByText("Beginner")).toBeInTheDocument();
   });
+
+  it("names the level in the link's accessible name", () => {
+    render(<SessionBlock session={session} top={0} height={72} />);
+
+    expect(
+      screen.getByRole("link", { name: /level: beginner/i }),
+    ).toBeInTheDocument();
+  });
 });

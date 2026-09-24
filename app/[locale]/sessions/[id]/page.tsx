@@ -30,6 +30,7 @@ export default async function SessionDetailPage({
   }
 
   const t = await getTranslations("SessionLevel");
+  const tBadge = await getTranslations("SessionBadge");
 
   return (
     <Flex direction="column" gap="6" flex="1" width="full">
@@ -46,8 +47,15 @@ export default async function SessionDetailPage({
 
       <Flex direction="column" gap="3">
         <Flex align="center" gap="3">
-          <Badge>{session.track}</Badge>
-          <Badge variant="secondary">{t(session.level)}</Badge>
+          <Badge aria-label={tBadge("track", { value: session.track })}>
+            {session.track}
+          </Badge>
+          <Badge
+            variant="secondary"
+            aria-label={tBadge("level", { value: t(session.level) })}
+          >
+            {t(session.level)}
+          </Badge>
           <Text fontSize="sm" color="var(--text-muted)">
             {session.startTime} · {session.durationMinutes} min · {session.room}
           </Text>
