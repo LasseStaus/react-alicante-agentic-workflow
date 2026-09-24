@@ -31,6 +31,7 @@ export default async function SessionDetailPage({
 
   const t = await getTranslations("SessionLevel");
   const tBadge = await getTranslations("SessionBadge");
+  const tDetail = await getTranslations("SessionDetail");
 
   return (
     <Flex direction="column" gap="6" flex="1" width="full">
@@ -41,7 +42,7 @@ export default async function SessionDetailPage({
           color="var(--text-muted)"
           _hover={{ textDecoration: "underline" }}
         >
-          ← Back to schedule
+          {tDetail("backToSchedule")}
         </Text>
       </Link>
 

@@ -21,5 +21,8 @@
   "SessionBadge": {
     "track": "Categoría: {value}",
     "level": "Nivel: {value}"
+  },
+  "SessionDetail": {
+    "backToSchedule": "← Volver al horario"
   }
 }

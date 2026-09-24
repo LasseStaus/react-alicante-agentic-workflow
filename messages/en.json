@@ -21,5 +21,8 @@
   "SessionBadge": {
     "track": "Track: {value}",
     "level": "Level: {value}"
+  },
+  "SessionDetail": {
+    "backToSchedule": "← Back to schedule"
   }
 }

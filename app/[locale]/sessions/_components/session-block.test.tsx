@@ -47,4 +47,15 @@ describe("SessionBlock", () => {
       screen.getByRole("link", { name: /level: beginner/i }),
     ).toBeInTheDocument();
   });
+
+  it.each([
+    ["intermediate", "Intermediate"],
+    ["advanced", "Advanced"],
+  ] as const)("shows the %s level as %s", (level, label) => {
+    render(
+      <SessionBlock session={{ ...session, level }} top={0} height={72} />,
+    );
+
+    expect(screen.getByText(label)).toBeInTheDocument();
+  });
 });
