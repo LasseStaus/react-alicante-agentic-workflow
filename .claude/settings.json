@@ -14,10 +14,22 @@
       "Bash(npx supabase db push:*)",
       "Bash(pnpm db:push:*)",
       "Bash(git push --force:*)",
-      "Bash(git push -f:*)"
+      "Bash(git push -f:*)",
+      "Bash(git push origin main:*)",
+      "Bash(git push origin master:*)",
+      "Bash(git push origin dev:*)",
+      "Bash(git push origin HEAD:main)",
+      "Bash(git push origin HEAD:master)",
+      "Bash(git push origin HEAD:dev)",
+      "Bash(git push:main)",
+      "Bash(git push:master)",
+      "Bash(git push:dev)"
     ],
     "ask": [
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git merge:*)",
+      "Bash(git merge --ff-only:*)",
+      "Bash(git merge --no-ff:*)"
     ]
   }
 }
