@@ -10,6 +10,7 @@ const session: Session = {
   title: "Opening Keynote",
   speaker: "Marta Fernandez",
   track: "React",
+  level: "beginner",
   room: "Main Hall",
   startTime: "09:00",
   durationMinutes: 45,
@@ -31,5 +32,30 @@ describe("SessionBlock", () => {
       "href",
       "/en/sessions/opening-keynote",
     );
+  });
+
+  it("shows the session level", () => {
+    render(<SessionBlock session={session} top={0} height={72} />);
+
+    expect(screen.getByText("Beginner")).toBeInTheDocument();
+  });
+
+  it("names the level in the link's accessible name", () => {
+    render(<SessionBlock session={session} top={0} height={72} />);
+
+    expect(
+      screen.getByRole("link", { name: /level: beginner/i }),
+    ).toBeInTheDocument();
+  });
+
+  it.each([
+    ["intermediate", "Intermediate"],
+    ["advanced", "Advanced"],
+  ] as const)("shows the %s level as %s", (level, label) => {
+    render(
+      <SessionBlock session={{ ...session, level }} top={0} height={72} />,
+    );
+
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
 });

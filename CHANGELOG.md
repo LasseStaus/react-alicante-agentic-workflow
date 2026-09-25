@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.4.0] — 2026-09-24
+
+### Features
+
+- Show each session's level (#5): every session has a level — beginner,
+  intermediate or advanced — stored as a `session_level` enum in the
+  database and shown as a badge next to the track on the session page and
+  in the schedule timeline blocks. Badges carry `aria-label`s and the
+  timeline block link has an explicit accessible name. Translations for
+  EN/ES, including the previously hardcoded "Back to schedule" link.
+- Add a Speakers page (#4): `/speakers` lists every speaker with their
+  sessions, each linking to the session's detail page, with a localized
+  "Speakers" / "Ponentes" entry in the desktop and mobile nav.
+
+### Database
+
+- New migration `20260924090000_session_level_enum.sql`: `session_level`
+  enum and a not-null `level` column on `sessions`, backfilled for all
+  existing sessions.
+
+## Test Suite
+
+| Suite          | Status     |
+| -------------- | ---------- |
+| ESLint         | ⏳ pending |
+| Type-check     | ⏳ pending |
+| Unit tests     | ⏳ pending |
+| Build (Vercel) | ⏳ pending |
+
+CI: pending — will run once the release branch is pushed
+
 ## [0.3.1] — 2026-09-24
 
 ### Bug Fixes

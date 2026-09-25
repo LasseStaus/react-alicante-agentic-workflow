@@ -2,6 +2,7 @@
   "Nav": {
     "home": "React Alicante Companion",
     "schedule": "Horario",
+    "speakers": "Ponentes",
     "stats": "Estadísticas",
     "news": "Noticias",
     "openMenu": "Abrir menú",
@@ -11,5 +12,17 @@
     "heading": "Guía de la conferencia React Alicante",
     "line1": "Tu agenda, tus sesiones —",
     "line2": "en un solo lugar"
+  },
+  "SessionLevel": {
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado"
+  },
+  "SessionBadge": {
+    "track": "Categoría: {value}",
+    "level": "Nivel: {value}"
+  },
+  "SessionDetail": {
+    "backToSchedule": "← Volver al horario"
   }
 }
